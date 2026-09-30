@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ContactHub - Smart Contact Manager</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="nav">
+        <a class="logo">
+          <b><img src="./images/logo.svg" alt="logo" /></b>
+          <span
+            ><strong>Contact<i>Hub</i></strong
+            ><small>Smart Contact Manager</small></span
+          >
+        </a>
+        <div class="actions">
+          <button class="add" id="addBtn">
+            <img src="./images/plus.svg" alt="plus" /> <span>Add Contact</span>
+          </button>
+          <button class="round" aria-label="Notifications">
+            <img src="images/bell.svg" alt="bell" />
+          </button>
+          <button class="round" aria-label="Settings">
+            <img src="./images/settings.svg" alt="settings" />
+          </button>
+          <div class="avatar">CH</div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="stats">
+        <article>
+          <b class="blue"><img src="./images/users.svg" alt="users" /></b
+          ><span><small>TOTAL</small><strong id="total">0</strong></span>
+        </article>
+        <article>
+          <b class="orange"><img src="./images/star.svg" alt="star" /></b
+          ><span><small>FAVORITES</small><strong id="favCount">0</strong></span>
+        </article>
+        <article>
+          <b class="pink"><img src="./images/heart.svg" alt="heart" /></b
+          ><span
+            ><small>EMERGENCY</small
+            ><strong id="emergencyCount">0</strong></span
+          >
+        </article>
+      </section>
+
+      <div class="layout">
+        <section class="content">
+          <h1>All Contacts</h1>
+          <p>
+            Manage and organize your <span id="contactCount">0</span> contacts
+          </p>
+          <label class="search"
+            ><img src="images/search.svg" alt="" /><input
+              id="search"
+              placeholder="Search by name, phone, or email..."
+          /></label>
+          <div id="contacts" class="cards"></div>
+          <div id="empty" class="empty">
+            <b><img src="./images/logo.svg" alt="logo" /></b
+            ><strong>No contacts found</strong
+            ><span>Click “Add Contact” to get started</span>
+          </div>
+        </section>
+
+        <aside>
+          <section class="side">
+            <div class="side-title warm">
+              <b><img src="./images/star.svg" alt="star" /></b
+              ><span
+                ><strong>Favorites</strong
+                ><small>Quick access to starred contacts</small></span
+              >
+            </div>
+            <div id="favorites" class="side-body">No favorites yet</div>
+          </section>
+          <section class="side">
+            <div class="side-title red">
+              <b><img src="./images/heart.svg" alt="heart" /></b
+              ><span
+                ><strong>Emergency</strong
+                ><small>Important contacts for urgent calls</small></span
+              >
+            </div>
+            <div id="emergency" class="side-body">No emergency contacts</div>
+          </section>
+        </aside>
+      </div>
+    </main>
+
+    <div class="overlay hidden" id="modal">
+      <div class="modal">
+        <div class="modal-head">
+          <span
+            ><h2 id="modalTitle">Add New Contact</h2>
+            <p>Enter the contact details below</p></span
+          >
+          <button id="closeBtn" aria-label="Close">
+            <img src="./images/close.svg" alt="close" />
+          </button>
+        </div>
+        <form id="form">
+          <label class="photo" for="photo"
+            ><span id="photoPreview"
+              ><img src="./images/user.svg" alt="user" /></span
+            ><small><img src="./images/camera.svg" alt="" /> Add photo</small
+            ><input hidden type="file" accept="image/*" id="photo"
+          /></label>
+          <div class="form-grid">
+            <label
+              >Full Name *<input
+                required
+                minlength="3"
+                id="name"
+                placeholder="e.g. Ahmed Mohamed"
+            /></label>
+            <label
+              >Phone Number *<input
+                required
+                id="phone"
+                placeholder="e.g. 01012345678"
+            /></label>
+            <label
+              >Email Address *<input
+                required
+                type="email"
+                id="email"
+                placeholder="name@example.com"
+            /></label>
+            <label
+              >Address<input id="address" placeholder="City, Country"
+            /></label>
+            <label
+              >Company<input id="company" placeholder="Company name"
+            /></label>
+            <label>Job Title<input id="job" placeholder="Job title" /></label>
+            <label
+              >Group<select id="group">
+                <option>Family</option>
+                <option>Friends</option>
+                <option>Work</option>
+                <option>Other</option>
+              </select></label
+            >
+            <label
+              >Notes<input id="notes" placeholder="Additional notes"
+            /></label>
+          </div>
+          <div class="checks">
+            <label><input type="checkbox" id="favorite" /> Favorite</label
+            ><label><input type="checkbox" id="isEmergency" /> Emergency</label>
+          </div>
+          <div class="buttons">
+            <button type="button" class="cancel" id="cancelBtn">Cancel</button
+            ><button class="add" id="submitBtn">Add Contact</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
